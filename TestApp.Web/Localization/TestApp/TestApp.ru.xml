@@ -4,6 +4,7 @@
     <text name="HomePage" value="Домашняя страница" />
     <text name="About" value="О технологии" />
     <text name="Users" value="Пользователи" />
+    <text name="Calendar" value="Календарь" />
     <text name="Create" value="Создать" />
     <text name="Edit" value="Редактировать" />
     <text name="WellcomeMessage" value="Добро пожаловать в TestApp!" />
@@ -25,5 +26,12 @@
     <text name="UserEdit" value="Редактирование пользователя" />
     <text name="UserPassword" value="Пароль" />
     <text name="Save" value="Сохранить" />
+    <text name="NewEventCreation" value="Создание нового события" />
+    <text name="Title" value="Название" />
+    <text name="StartDate" value="Дата начала" />
+    <text name="EndDate" value="Дата окончания" />
+    <text name="AllDay" value="Весь день" />
+    <text name="Url" value="Ссылка" />
+    <text name="Add" value="Добавить" />
   </texts>
 </localizationDictionary>

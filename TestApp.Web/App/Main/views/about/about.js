@@ -2,6 +2,7 @@
     'use strict';
 
     var controllerId = 'app.views.about';
+
     angular.module('app')
     .controller(controllerId, about);
     about.$inject = ['$scope', '$http'];
@@ -43,5 +44,7 @@
         };
 
        
-    }
+    }   
+
+
 })();

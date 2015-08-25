@@ -14,33 +14,49 @@ using TestApp.Web;
 
 namespace TestApp.Web.Controllers
 {
-    public class UsersController : ApiController
+    public class CalendarController : ApiController
     {
         private Entities db = new Entities();
+
+
+
         // GET: api/Users
-        public IQueryable<TEST_USERS> GetUsers()
+        public IQueryable<TEST_CALENDAR_DM> GetEvents()
         {
-            return db.TEST_USERS;
+            return db.TEST_CALENDAR_DM;
         }
-        public IQueryable<TEST_USERS> GetPaginationUsers(int currentPage = 1, int itemsPerPage = 10, string search = null)
+
+        // POST: api/Users
+        [ResponseType(typeof(TEST_CALENDAR_DM))]
+        public IHttpActionResult PostEvent(TEST_CALENDAR_DM CALENDAR)
         {
-               
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            db.TEST_CALENDAR_DM.Add(CALENDAR);
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                throw;
+            }
+
+            return CreatedAtRoute("DefaultApi", new { id = CALENDAR.ID }, CALENDAR);
+        }
+        /*
+        public IQueryable<TEST_USERS> GetPaginationUsers(int currentPage = 1, int itemsPerPage = 10)
+        {
+            //int currentPage = Convert.ToInt32(page);
+            //int itemsPerPage = 10;
+            //int currentPage = 0;
             IQueryable<TEST_USERS> query;
 
             query = db.TEST_USERS.OrderBy(c => c.NAME);
-
-            //Поиск v1
-
-            if (!String.IsNullOrEmpty(search))
-            {
-                string[] searchElements = search.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                foreach (string searchElement in searchElements)
-                {
-                    string element = searchElement;
-                    query = query.Where(c => c.NAME.Contains(element) || c.LOGIN.Contains(element) || c.EMAIL.Contains(element));
-                }
-            }
-
 
             var totalCount = query.Count();
             var totalPages = (int)Math.Ceiling((double)totalCount / itemsPerPage);
@@ -113,35 +129,7 @@ namespace TestApp.Web.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Users
-        [ResponseType(typeof(TEST_USERS))]
-        public IHttpActionResult PostUser(TEST_USERS tEST_USERS)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.TEST_USERS.Add(tEST_USERS);
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (UserExists(tEST_USERS.ID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtRoute("DefaultApi", new { id = tEST_USERS.ID }, tEST_USERS);
-        }
+        
 
         // DELETE: api/Users/5
         [ResponseType(typeof(TEST_USERS))]
@@ -171,6 +159,6 @@ namespace TestApp.Web.Controllers
         private bool UserExists(decimal id)
         {
             return db.TEST_USERS.Count(e => e.ID == id) > 0;
-        }
+        }*/
     }
 }
