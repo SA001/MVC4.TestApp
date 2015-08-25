@@ -19,7 +19,7 @@ namespace TestApp.Web
         public string TITLE { get; set; }
         public Nullable<System.DateTime> START_DATE { get; set; }
         public Nullable<System.DateTime> END_DATE { get; set; }
-        public Nullable<decimal> ALLDAY { get; set; }
+        public Nullable<decimal> ALL_DAY { get; set; }
         public string URL { get; set; }
     }
 }
