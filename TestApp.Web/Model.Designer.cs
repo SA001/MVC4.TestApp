@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿// T4 code generation is enabled for model 'D:\проекты\GitHub\MVC4.TestApp\TestApp.Web\Model.edmx'. 
+=======
+﻿// T4 code generation is enabled for model 'E:\Projects\GitHubVisualStudio\MVC4.TestApp.git\TestApp.Web\Model.edmx'. 
+>>>>>>> d292317398e1d467f8d4775b6ac09f71214f8977
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

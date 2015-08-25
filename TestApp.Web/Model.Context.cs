@@ -26,6 +26,10 @@ namespace TestApp.Web
         }
     
         public virtual DbSet<TEST_USERS> TEST_USERS { get; set; }
+<<<<<<< HEAD
         public virtual DbSet<TEST_SA_TT> TEST_SA_TT { get; set; }
+=======
+        public virtual DbSet<TEST_CALENDAR_DM> TEST_CALENDAR_DM { get; set; }
+>>>>>>> d292317398e1d467f8d4775b6ac09f71214f8977
     }
 }
