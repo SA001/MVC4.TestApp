@@ -15,7 +15,7 @@
         <thead>
             <tr>
                 <th></th>
-                <th>@L("UserName") {{vm.totalItems}}</th>
+                <th>@L("UserName")</th>
                 <th>@L("UserLogin")</th>
                 <th>@L("UserEmail")</th>
             </tr>
@@ -34,7 +34,7 @@
 
     </table>
     <!--<div id="grid1" ui-grid="{ data: vm.myData }" class="grid"></div>-->
-    <pagination page="vm.currentPage" ng-change="vm.pageChanged()" total-items="vm.totalItems" ng-model="vm.currentPage" max-size="vm.maxSize" class="pagination-lg" items-per-page="vm.itemsPerPage" boundary-links="true"></pagination>
+    <pagination page="vm.currentPage" ng-change="vm.pageChanged()" total-items="vm.totalItems" ng-model="vm.currentPage" max-size="vm.maxSize" class="pagination-sm" items-per-page="vm.itemsPerPage" boundary-links="true"></pagination>
     <div>Строк на странице
         <select aria-label="itemsPerPage" ng-model="vm.itemsPerPage" ng-change="vm.pageChanged()">
             <option value="2">2</option>
