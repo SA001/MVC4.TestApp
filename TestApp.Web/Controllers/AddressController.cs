@@ -16,24 +16,24 @@ namespace TestApp.Web.Controllers
 {
     public class AddressController : ApiController
     {
-        private Entities db = new Entities();
+        private Entities2 db = new Entities2();
 
         // GET: api/Address
-        public IQueryable<TEST_SA_TT> GetTEST_SA_TT()
+        public IQueryable<NRMT_ESK> GetTEST_SA_TT()
         {
-            return db.TEST_SA_TT;
+            return db.NRMT_ESK;
         }
         // GET: api/Address/GetPaginationAddress
-        public IQueryable<TEST_SA_TT> GetPaginationAddress(int currentPage = 1, int itemsPerPage = 10, string search = null)
+        public IQueryable<NRMT_ESK> GetPaginationAddress(int currentPage = 1, int itemsPerPage = 10, string search = null)
         {
 
-            IQueryable<TEST_SA_TT> query;
+            IQueryable<NRMT_ESK> query;
 
-            query = db.TEST_SA_TT.OrderBy(c => c.TEXT_ADDR);
+            query = db.NRMT_ESK.OrderBy(c => c.ID); 
 
             //Поиск v1
 
-            if (!String.IsNullOrEmpty(search))
+            /*if (!String.IsNullOrEmpty(search))
             {
                 string[] searchElements = search.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (string searchElement in searchElements)
@@ -41,7 +41,7 @@ namespace TestApp.Web.Controllers
                     string element = searchElement;
                     query = query.Where(c => c.TEXT_ADDR.Contains(element) || c.TEXT_ADDR_NRM.Contains(element));
                 }
-            }
+            }*/
 
 
             var totalCount = query.Count();
@@ -57,7 +57,7 @@ namespace TestApp.Web.Controllers
             System.Web.HttpContext.Current.Response.Headers.Add("X-Pagination-Per-Page", Newtonsoft.Json.JsonConvert.SerializeObject(itemsPerPage));
             System.Web.HttpContext.Current.Response.Headers.Add("X-Pagination-Total-Count", Newtonsoft.Json.JsonConvert.SerializeObject(totalCount));
 
-            IQueryable<TEST_SA_TT> results = query
+            IQueryable<NRMT_ESK> results = query
                 .Skip(itemsPerPage * (currentPage - 1))
                 .Take(itemsPerPage);            
             return results;
@@ -65,7 +65,7 @@ namespace TestApp.Web.Controllers
 
 
         // GET: api/Address/5
-        [ResponseType(typeof(TEST_SA_TT))]
+        /*[ResponseType(typeof(TEST_SA_TT))]
         public IHttpActionResult GetTEST_SA_TT(decimal id)
         {
             TEST_SA_TT tEST_SA_TT = db.TEST_SA_TT.Find(id);
@@ -170,6 +170,6 @@ namespace TestApp.Web.Controllers
         private bool TEST_SA_TTExists(decimal id)
         {
             return db.TEST_SA_TT.Count(e => e.ID == id) > 0;
-        }
+        }*/
     }
 }

@@ -19,10 +19,10 @@ using System.Collections;
 namespace TestApp.Web.Controllers
 {
     public class HomeController : TestAppControllerBase    {
-        private Entities db = new Entities();      
+        private Entities2 db = new Entities2();      
         public ActionResult Index()
         {
-            //db.TEST_USERS.Load();      
+           
             return View("~/App/Main/views/layout/layout.cshtml");            
         }
         /*public JsonResult Users()

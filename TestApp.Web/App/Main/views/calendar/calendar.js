@@ -75,7 +75,7 @@
             var s = new Date(start).getTime() / 1000;
             var e = new Date(end).getTime() / 1000;
             var m = new Date(start).getMonth();
-            var events = [{ title: 'Feed Me ' + m, start: s + (50000), end: s + (100000), allDay: false, className: ['customFeed'] }];
+            var events = vm.events;
             callback(events);
         };
 
@@ -169,13 +169,9 @@
                 editable: true,
                 firstDay: 1,
                 header: {
-                    
-                    left: 'title',
-                    center: '',
-                    right: 'today prev,next'/*
                     left: 'month,agendaWeek,agendaDay',
                     center: 'title',
-                    right: 'today prev,next'*/
+                    right: 'today prev,next'
                 },
                 eventClick: vm.alertOnEventClick,
                 eventDrop: vm.alertOnDrop,
